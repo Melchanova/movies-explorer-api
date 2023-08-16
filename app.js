@@ -9,13 +9,14 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 const cors = require('./middlewares/cors');
 const limiter = require('./middlewares/rateLimit');
 
-const { DB_URL } = process.env;
-const { PORT = 3000 } = process.env;
+const { DB_URL_DEV } = require('./utils/config');
+
+const { PORT, DB_URL } = process.env;
 
 const app = express();
 
 mongoose
-  .connect(DB_URL)
+  .connect(DB_URL || DB_URL_DEV)
   .then(() => {
     // eslint-disable-next-line no-console
     console.log('БД подключена');

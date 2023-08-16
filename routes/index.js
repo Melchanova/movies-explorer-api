@@ -13,6 +13,7 @@ const {
 } = require('../middlewares/validation');
 
 const NotFoundError = require('../utils/errors/NotFoundError');
+const { errorText } = require('../utils/constants');
 
 router.post('/signup', createUserValidator, createUser);
 router.post('/signin', UserLoginValidator, UserLogin);
@@ -23,7 +24,7 @@ router.use('/', userRouter);
 router.use('/', movieRouter);
 
 router.use('*', (req, res, next) => {
-  next(new NotFoundError('Страница не найдена'));
+  next(new NotFoundError(errorText.notFoubdError));
 });
 
 module.exports = router;
