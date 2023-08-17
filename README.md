@@ -12,7 +12,7 @@
 
 ## Ссылки на проект 
 
-IP 130.193.53.155
+IP 51.250.17.176
 
 Frontend https://cinema.nomoreparties.co
 
